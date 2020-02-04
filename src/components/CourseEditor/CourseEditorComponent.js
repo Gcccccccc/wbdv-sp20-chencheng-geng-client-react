@@ -5,6 +5,10 @@ import TopicPillsComponent from "./TopicPillsComponent";
 import WidgetListComponent from "./WidgetListComponent";
 
 class CourseEditorComponent extends React.Component{
+    constructor(props) {
+        super(props);
+    }
+
     state = {
 
     }
@@ -15,7 +19,7 @@ class CourseEditorComponent extends React.Component{
                 <div className="container-fluid">
                     <div className="row nbar-editor">
                         <div className="col-1">
-                            <a className="wbdv-course-editor wbdv-close" href="#">
+                            <a className="wbdv-course-editor wbdv-close" href="#" onClick={this.props.hideCourseEditor}>
                                 <i className="fas fa-times fa-2x wbdv-back"></i>
                             </a>
                         </div>

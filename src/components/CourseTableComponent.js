@@ -3,7 +3,7 @@ import './CourseManager.css'
 import {deleteCourse} from "../services/CourseService";
 import CourseTableRowComponent from "./CourseTableRowComponent";
 
-const CourseTableComponent = ({courses,deleteCourse}) => {
+const CourseTableComponent = ({courses,deleteCourse,showCourseEditor}) => {
     return(
         <div>
             {
@@ -12,6 +12,7 @@ const CourseTableComponent = ({courses,deleteCourse}) => {
                         deleteCourse={deleteCourse}
                         key={course._id}
                         course={course}
+                        showCourseEditor={showCourseEditor}
                     />
                 })
             }

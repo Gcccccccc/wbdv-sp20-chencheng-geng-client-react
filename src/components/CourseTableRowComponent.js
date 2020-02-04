@@ -24,7 +24,7 @@ class CourseTableRowComponent extends React.Component{
                     <div className="col-sm-6 col-11">
                         <i className="fas fa-file-alt wbdv-row wbdv-icon"></i>
                         <span>&nbsp;&nbsp;&nbsp;</span>
-                        <a href="#">
+                        <a href="#" onClick={this.props.showCourseEditor}>
                             <span className="wbdv-row wbdv-title">{this.props.course.title}</span>
                         </a>
                     </div>
