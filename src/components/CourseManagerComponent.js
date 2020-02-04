@@ -124,6 +124,12 @@ class CourseManagerComponent extends React.Component{
                             <CourseGridComponent
                             hideCourseEditor={this.hideCourseEditor}/>
                         }
+                        <div className="wbdv-static">
+                            <a className="wbdv-button wbdv-add-course"
+                               href="#">
+                                <i className="fas fa-plus-circle fa-3x"></i>
+                            </a>
+                        </div>
                     </div>
 
                 }
