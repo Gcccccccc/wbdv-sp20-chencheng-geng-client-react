@@ -1,0 +1,73 @@
+.nbar {
+    background-color: royalblue;
+    padding: 8px;
+}
+
+.wbdv-course-manager{
+    font-style: inherit;
+    color: antiquewhite;
+    font-weight: bold;
+    font-size: large;
+    top: 5px
+}
+
+.wbdv-new-course{
+    background-color: cornflowerblue;
+    border-radius: 10px;
+}
+
+.wbdv-hamburger{
+    color: antiquewhite;
+    left: 10px;
+}
+
+.wbdv-add-course{
+    color: red;
+
+}
+.wbdv-last-modified{
+    font-size: small;
+}
+::placeholder{
+    color: antiquewhite;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.course-list-container{
+    background-color: #ededed;
+    padding: 10px;
+    border-style: solid;
+    border-color: lightgray;
+    border-width: 1px;
+}
+
+.wbdv-header{
+    font-weight: bold ;
+}
+
+.course-list-container-2{
+    background-color: white;
+    padding: 20px;
+    border-style: solid;
+    border-color: lightgray;
+    border-width: 1px;
+}
+
+.wbdv-row{
+    font-weight: bold;
+}
+
+.wbdv-change-date{
+    font-size: medium;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.wbdv-static{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+}
+
