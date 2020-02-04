@@ -1,0 +1,148 @@
+.nbar-editor{
+    background-color: #3f3f3f;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.wbdv-page-tab{
+    color: darkgray;
+    font-size: large;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.nav-pills > li > a.active {
+    background-color: #313131!important;
+}
+
+.nav-pills > li > a:hover {
+    color: #ffffff !important;
+}
+
+
+.wbdv-module-times{
+    color: white;
+}
+
+.mudule-lst{
+    height: 100vh;
+    background-color: #313131;
+}
+
+.wbdv-module-item-delete-btn{
+    background-color: Transparent;
+    float: right;
+    border: none;
+}
+
+.wbdv-module-item-title{
+    background-color: #3f3f3f;
+    color: white;
+    padding: 15px;
+    margin: 10px;
+    /*display: flex;*/
+    /*align-items: center;*/
+}
+
+.nav-pills > div > a:hover {
+    color: lightgray !important;
+}
+
+
+.nav-pills > div > a.active {
+    background-color: cornflowerblue!important;
+}
+
+.topics{
+    padding: 20px;
+}
+
+
+
+/*.nav-pills .wbdv-topic-pill-list > li > a.active {*/
+/*    background-color: black;*/
+/*}*/
+
+/*.nav-pills .wbdv-topic-pill-list> li > a:hover {*/
+/*    color: #ffffff !important;*/
+/*}*/
+.wbdv-topic-pill{
+    background-color: #818181;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+}
+
+.wbdv-module-item-add-btn{
+    padding: 30px;
+    float: right;
+}
+.wbdv-module-add{
+    color: white;
+}
+.preview-toggle{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.heading-widget{
+    border-style: solid;
+    border-color: lightgray;
+    border-width: 2px;
+}
+
+.hd-widget-row{
+    display: flex;
+    align-items: center;
+}
+
+.course-editor-input{
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.course-editor-select{
+    margin-bottom: 20px;
+}
+
+.wbdv-static{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: none;
+    background: none;
+    color: red;
+}
+
+.wbdv-new-page-btn{
+    color: lightgray;
+}
+
+.wbdv-course-title{
+    color: white;
+    font-size: larger;
+}
+
+.wbdv-back{
+    color: lightgray;
+}
+
+.wbdv-topic-add-btn{
+    color: white;
+}
+
+.wbdv-heading-widget{
+    padding: 20px;
+}
+
+.wbdv-widget-select{
+    width: 150px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.wbdv-preview-row{
+    margin-bottom: 20px;
+}
