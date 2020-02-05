@@ -1,6 +1,6 @@
 import React from "react";
 import './CourseManager.css'
-import {updateCourse} from "../services/CourseService";
+
 // return <CourseTableRowComponent
 //     showCourseEditor={showCourseEditor}
 //     deleteCourse={deleteCourse}

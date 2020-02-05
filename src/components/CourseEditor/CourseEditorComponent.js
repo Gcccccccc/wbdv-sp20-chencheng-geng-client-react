@@ -10,7 +10,27 @@ class CourseEditorComponent extends React.Component{
     }
 
     state = {
-
+        modules : [
+            {title:'Module 1 - Jquery'},
+            {title:'Module 2 - React'},
+            {title:'Module 3 - Redux'},
+            {title:'Module 4 - Native'},
+            {title:'Module 5 - Angular'},
+            {title:'Module 6 - Node'},
+            {title:'Module 7 - Mongo'}
+        ],
+        topics : [
+            {title:'Topic 1'},
+            {title:'Topic 2'},
+            {title:'Topic 3'},
+            {title:'Topic 4'}
+        ],
+        lessons : [
+            {title:'Build'},
+            {title:'Pages'},
+            {title:'Theme'},
+            {title:'Store'}
+        ]
     }
 
     render(){
@@ -27,7 +47,7 @@ class CourseEditorComponent extends React.Component{
                             <b className="wbdv-course-title">CS5610 - WebDev</b>
                         </div>
                         <div className="col-7">
-                            <LessonTabsComponent/>
+                            <LessonTabsComponent lessons={this.state.lessons}/>
                         </div>
                         <div className="col-1">
                             <i className="fas fa-plus fa-2x" ></i>
@@ -38,7 +58,7 @@ class CourseEditorComponent extends React.Component{
                 <div className="row">
                     <div className="col-4 mudule-lst">
                         <div className="nav flex-column nav-pills wbdv-module-list" aria-orientation="vertical">
-                            <ModuleListComponent/>
+                            <ModuleListComponent modules={this.state.modules}/>
                             <div>
                                 <a className="btn wbdv-module-item-add-btn">
                                     <i className="fas fa-plus fa-2x wbdv-module-add"></i>
@@ -48,7 +68,7 @@ class CourseEditorComponent extends React.Component{
                     </div>
 
                     <div className="col-8 topics">
-                        <TopicPillsComponent/>
+                        <TopicPillsComponent topics={this.state.topics}/>
 
                         <div className="row wbdv-preview-row">
                             <div className="col-9"></div>
