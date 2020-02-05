@@ -1,10 +1,10 @@
 import React from "react";
-import LessonTabsComponent from "./LessonTabsComponent";
-import ModuleListComponent from "./ModuleListComponent";
-import TopicPillsComponent from "./TopicPillsComponent";
-import WidgetListComponent from "./WidgetListComponent";
+import LessonTabsComponent from "../components/CourseEditor/LessonTabsComponent";
+import ModuleListComponent from "../components/CourseEditor/ModuleListComponent";
+import TopicPillsComponent from "../components/CourseEditor/TopicPillsComponent";
+import WidgetListComponent from "../components/CourseEditor/WidgetListComponent";
 
-class CourseEditorComponent extends React.Component{
+class CourseEditorContainer extends React.Component{
     constructor(props) {
         super(props);
     }
@@ -102,4 +102,4 @@ class CourseEditorComponent extends React.Component{
     }
 }
 
-export default CourseEditorComponent
+export default CourseEditorContainer

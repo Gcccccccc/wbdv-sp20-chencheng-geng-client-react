@@ -1,12 +1,13 @@
 import React from "react"
 import {deleteCourse,findAllCourses,createCourse,updateCourse} from "../services/CourseService";
 
-import CourseTableComponent from "./CourseTableComponent";
-import CourseGridComponent from "./CourseGridComponent";
-import './CourseManager.css'
-import CourseEditorComponent from "./CourseEditor/CourseEditorComponent";
+import CourseTableComponent from "../components/CourseTableComponent";
+import CourseGridComponent from "../components/CourseGridComponent";
+import '../components/CourseManager.css'
+import CourseEditorContainer from "./CourseEditorContainer";
 
-class CourseManagerComponent extends React.Component{
+
+class CourseManagerContainer extends React.Component{
     state = {
         layout : 'table',
         courses : [],
@@ -88,7 +89,7 @@ class CourseManagerComponent extends React.Component{
             <div>
                 {
                     this.state.editingCourse &&
-                    <CourseEditorComponent
+                    <CourseEditorContainer
                         hideCourseEditor={this.hideCourseEditor}/>
                 }
 
@@ -196,4 +197,4 @@ class CourseManagerComponent extends React.Component{
 }
 
 
-export default CourseManagerComponent
+export default CourseManagerContainer
