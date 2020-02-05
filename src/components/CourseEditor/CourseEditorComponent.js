@@ -29,7 +29,9 @@ class CourseEditorComponent extends React.Component{
             {title:'Build'},
             {title:'Pages'},
             {title:'Theme'},
-            {title:'Store'}
+            {title:'Store'},
+            {title:'Apps'},
+            {title:'Settings'}
         ]
     }
 
