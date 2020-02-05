@@ -116,7 +116,7 @@ class CourseManagerComponent extends React.Component{
                         <div className="container-fluid course-list-container">
                             <div className="container">
                                 <div className="row">
-                                    <div className="col-sm-6 d-none d-sm-block">
+                                    <div className="col-md-6 col-sm-6 col-10">
                                         {
                                             this.state.layout === 'table' &&
                                             <span className="wbdv-header wbdv-title">&nbsp;&nbsp;&nbsp;Title</span>
@@ -127,7 +127,7 @@ class CourseManagerComponent extends React.Component{
                                         }
                                     </div>
 
-                                    <div className="col-sm-2 d-none d-sm-block">
+                                    <div className="col-md-2 col-sm-4 d-none d-sm-block">
                                         {
                                             this.state.layout === 'table' &&
                                             <div>
@@ -140,10 +140,10 @@ class CourseManagerComponent extends React.Component{
                                             <span className="wbdv-header wbdv-owner">Owned by me</span>
                                         }
                                     </div>
-                                    <div className="col-sm-2 d-none d-sm-block">
+                                    <div className="col-md-2 d-none d-md-block">
                                         <span className="wbdv-header wbdv-last-modified">Last modified by me</span>
                                     </div>
-                                    <div className="col-sm-1 d-none d-sm-block">
+                                    <div className="col-md-1 col-sm-1 col-1">
                                         {
                                             this.state.layout === 'table' &&
                                             <i className="fas fa-grip-horizontal fa-lg wbdv-button wbdv-grid-layout"
@@ -157,7 +157,7 @@ class CourseManagerComponent extends React.Component{
                                             </i>
                                         }
                                     </div>
-                                    <div className="col-sm-1 d-none d-sm-block">
+                                    <div className="col-md-1 col-sm-1 col-1">
                                         <i className="fas fa-sort-alpha-down wbdv-header wbdv-sort"></i>
                                     </div>
                                 </div>

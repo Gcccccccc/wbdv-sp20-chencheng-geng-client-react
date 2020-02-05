@@ -32,21 +32,21 @@ class CourseTableRowComponent extends React.Component{
                     !this.state.selected &&
                     <div className="container not-selected-container course-list-container-2"onClick={this.selectRow}>
                         <div className="row wbdv-row wbdv-course" >
-                            <div className="col-sm-6 col-11">
+                            <div className="col-md-6 col-sm-6 col-10">
                                 <i className="fas fa-file-alt wbdv-row wbdv-icon"></i>
                                 <span>&nbsp;&nbsp;&nbsp;</span>
                                 <a href="#" onClick={this.props.showCourseEditor}>
                                     <span className="wbdv-row wbdv-title">{this.props.course.title}</span>
                                 </a>
                             </div>
-                            <div className="col-sm-2 d-none d-sm-block">
+                            <div className="col-md-2 col-sm-4 d-none d-sm-block">
                                 <span className="wbdv-row wbdv-owner">{this.props.course.ownedBy}</span>
                             </div>
-                            <div className="col-sm-2 d-none d-sm-block">
+                            <div className="col-md-2 d-none d-md-block">
                                 <span className="wbdv-row wbdv-modified-date">{this.props.course.lastModified}</span>
                             </div>
-                            <span className="col-sm-1 d-none d-sm-block"></span>
-                            <div className="wbdv-course-delete col-sm-1 col-1">
+                            <span className="col-md-1 col-sm-1 col-1"></span>
+                            <div className="wbdv-course-delete col-md-1 col-sm-1 col-1">
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@ class CourseTableRowComponent extends React.Component{
                     this.state.selected &&
                     <div className="container selected-container course-list-container-2">
                         <div className="row wbdv-row wbdv-course">
-                            <div className="col-sm-6 col-11">
+                            <div className="col-md-6 col-sm-6 col-10">
                                 <i className="fas fa-file-alt wbdv-row wbdv-icon"></i>
                                 <span>&nbsp;&nbsp;&nbsp;</span>
                                 {
@@ -75,18 +75,18 @@ class CourseTableRowComponent extends React.Component{
                                            value={this.state.course.title}/>
                                 }
                             </div>
-                            <div className="col-sm-2 d-none d-sm-block">
+                            <div className="col-md-2 col-sm-4 d-none d-sm-block">
                                 <span className="wbdv-row wbdv-owner">{this.props.course.ownedBy}</span>
                             </div>
-                            <div className="col-sm-2 d-none d-sm-block">
+                            <div className="col-md-2 d-none d-md-block">
                                 <span className="wbdv-row wbdv-modified-date">{this.props.course.lastModified}</span>
                             </div>
-                            <span className="col-sm-1 d-none d-sm-block"></span>
-                            <div className="wbdv-course-delete col-sm-1 col-1">
+
+                            <div className="wbdv-course-delete col-md-2 col-md-2 col-2">
                                 {
                                     !this.state.editing &&
-                                    <div class="row">
-                                        <i className="fas fa-pencil-alt btn wbdv-edit-course" onClick={() => {
+                                    <div class="row course-btn">
+                                        <i className="fas fa-pencil-alt btn wbdv-edit-course " onClick={() => {
                                             this.setState({editing: true})
                                         }}></i>
                                         <i className="fas fa-trash-alt wbdv-row wbdv-button wbdv-delete btn"
@@ -97,7 +97,7 @@ class CourseTableRowComponent extends React.Component{
                                 }
                                 {
                                     this.state.editing &&
-                                    <i className="fas fa-check btn wbdv-save-course" onClick={
+                                    <i className="fas fa-check btn wbdv-save-course course-btn" onClick={
                                         () => {
                                             this.props.updateCourse(this.state.course._id, this.state.course)
                                                 .then(status => {
