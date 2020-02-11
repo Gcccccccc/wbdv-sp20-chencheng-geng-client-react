@@ -1,6 +1,7 @@
 import React from "react";
 
 import './CourseManager.css'
+import {Link} from "react-router-dom";
 
 class CourseCardComponent extends React.Component{
     constructor(props) {
@@ -19,9 +20,9 @@ class CourseCardComponent extends React.Component{
                     <div>
                         {
                             !this.state.editing &&
-                            <a href="#" onClick={this.props.showCourseEditor}>
+                            <Link to={`/course-editor/${this.state.course._id}`}>
                                 <b>{this.state.course.title}</b>
-                            </a>
+                            </Link>
                         }
                         {
                             this.state.editing &&
