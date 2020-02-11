@@ -1,6 +1,6 @@
 import React from "react";
 import './CourseManager.css'
-
+import {Link} from "react-router-dom"
 // return <CourseTableRowComponent
 //     showCourseEditor={showCourseEditor}
 //     deleteCourse={deleteCourse}
@@ -35,9 +35,9 @@ class CourseTableRowComponent extends React.Component{
                             <div className="col-md-6 col-sm-6 col-10">
                                 <i className="fas fa-file-alt wbdv-row wbdv-icon"></i>
                                 <span>&nbsp;&nbsp;&nbsp;</span>
-                                <a href="#" onClick={this.props.showCourseEditor}>
-                                    <span className="wbdv-row wbdv-title">{this.props.course.title}</span>
-                                </a>
+                                <Link to={`/course-editor/${this.state.course._id}`}>
+                                    <span className="wbdv-row wbdv-title">{this.state.course.title}</span>
+                                </Link>
                             </div>
                             <div className="col-md-2 col-sm-4 d-none d-sm-block">
                                 <span className="wbdv-row wbdv-owner">{this.props.course.ownedBy}</span>
@@ -60,9 +60,9 @@ class CourseTableRowComponent extends React.Component{
                                 <span>&nbsp;&nbsp;&nbsp;</span>
                                 {
                                     !this.state.editing &&
-                                    <a href="#" onClick={this.props.showCourseEditor}>
-                                        <span className="wbdv-row wbdv-title">{this.props.course.title}</span>
-                                    </a>
+                                    <Link to={`/course-editor/${this.state.course._id}`}>
+                                        <span className="wbdv-row wbdv-title">{this.state.course.title}</span>
+                                    </Link>
                                 }
                                 {
                                     this.state.editing &&

@@ -46,7 +46,7 @@ class CourseEditorContainer extends React.Component{
                             </a>
                         </div>
                         <div className="col-3">
-                            <b className="wbdv-course-title">CS5610 - WebDev</b>
+                            <b className="wbdv-course-title">{this.props.courseId}</b>
                         </div>
                         <div className="col-7">
                             <LessonTabsComponent lessons={this.state.lessons}/>
