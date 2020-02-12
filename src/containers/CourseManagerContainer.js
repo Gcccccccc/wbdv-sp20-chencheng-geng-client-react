@@ -5,7 +5,7 @@ import CourseTableComponent from "../components/CourseTableComponent";
 import CourseGridComponent from "../components/CourseGridComponent";
 
 import '../components/CourseManager.css'
-import CourseEditorContainer from "./CourseEditorContainer";
+import CourseEditorComponent from "../components/CourseEditor/CourseEditorComponent";
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 class CourseManagerContainer extends React.Component{
@@ -285,7 +285,7 @@ class CourseManagerContainer extends React.Component{
                         path={"/course-editor/:courseId"}
                         exact={true}
                         render={(props) =>
-                            <CourseEditorContainer
+                            <CourseEditorComponent
                                 courseId = {props.match.params.courseId}
                                 {...props}
                             />
@@ -296,7 +296,7 @@ class CourseManagerContainer extends React.Component{
                         path={"/course-editor/:courseId/module/:moduleId"}
                         exact={true}
                         render={(props) =>
-                            <CourseEditorContainer
+                            <CourseEditorComponent
                                 courseId = {props.match.params.courseId}
                                 moduleId = {props.match.params.moduleId}
                                 {...props}
@@ -308,7 +308,7 @@ class CourseManagerContainer extends React.Component{
                         path={"/course-editor/:courseId/module/:moduleId/lesson/:lessonId"}
                         exact={true}
                         render={(props) =>
-                            <CourseEditorContainer
+                            <CourseEditorComponent
                                 courseId = {props.match.params.courseId}
                                 moduleId = {props.match.params.moduleId}
                                 lessonId = {props.match.params.lessonId}

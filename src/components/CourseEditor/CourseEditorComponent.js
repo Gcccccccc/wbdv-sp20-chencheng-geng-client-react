@@ -1,14 +1,14 @@
 import React from "react";
-import LessonTabsComponent from "../components/CourseEditor/LessonTabsComponent";
-import ModuleListComponent from "../components/CourseEditor/ModuleListComponent";
-import TopicPillsComponent from "../components/CourseEditor/TopicPillsComponent";
-import WidgetListComponent from "../components/CourseEditor/WidgetListComponent";
+import LessonTabsComponent from "./LessonTabsComponent";
+import ModuleListComponent from "./ModuleListComponent";
+import TopicPillsComponent from "./TopicPillsComponent";
+import WidgetListComponent from "./WidgetListComponent";
 import {Link} from "react-router-dom";
 import {combineReducers, createStore} from "redux";
-import moduleReducer from "../reducers/moduleReducer";
+import moduleReducer from "../../reducers/moduleReducer";
 import {Provider} from "react-redux";
-import lessonReducer from "../reducers/lessonReducer";
-import topicReducer from "../reducers/topicReducer";
+import lessonReducer from "../../reducers/lessonReducer";
+import topicReducer from "../../reducers/topicReducer";
 
 const rootReducer = combineReducers({
     modules: moduleReducer,
@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
 })
 const store = createStore(rootReducer)
 
-const CourseEditorContainer = ({match}) =>
+const CourseEditorComponent = ({match}) =>
         <Provider store={store}>
             <div>
                 <div className="container-fluid">
@@ -57,4 +57,4 @@ const CourseEditorContainer = ({match}) =>
 
 
 
-export default CourseEditorContainer
+export default CourseEditorComponent
