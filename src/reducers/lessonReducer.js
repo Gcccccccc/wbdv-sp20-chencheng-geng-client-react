@@ -13,12 +13,11 @@ const lessonReducer = (state = initialState, action) => {
                 lessons: action.lessons
             }
         case UPDATE_LESSON:{
-            for (let i = 0; i<state.lessons.length;i++)
-            {
-                if(state.lessons[i]._id === action.lessonId)
-                    state.lessons[i] = action.lesson;
+            return {
+                lessons: state.lessons.map(lesson =>
+                    lesson._id === action.lessonId ? action.lesson : lesson
+                )
             }
-            return state
         }
         case CREATE_LESSON:
             return {

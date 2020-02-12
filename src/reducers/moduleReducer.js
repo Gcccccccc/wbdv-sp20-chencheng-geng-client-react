@@ -12,14 +12,13 @@ const moduleReducer = (state = initialState, action) => {
             return {
                 modules: action.modules
             }
-        case UPDATE_MODULE:{
-            for (let i = 0; i<state.modules.length;i++)
-            {
-                if(state.modules[i]._id === action.moduleId)
-                    state.modules[i] = action.module;
+        case UPDATE_MODULE:
+            return {
+                modules: state.modules.map(module =>
+                    module._id === action.moduleId ? action.module : module
+                )
             }
-            return state
-        }
+
         case CREATE_MODULE:
             return {
                 modules: [
@@ -29,7 +28,8 @@ const moduleReducer = (state = initialState, action) => {
             }
         case DELETE_MODULE:
             return {
-                modules: state.modules.filter(module => module._id !== action.moduleId)
+                modules: state.modules.filter(
+                    module => module._id !== action.moduleId)
             }
         default:
             return state

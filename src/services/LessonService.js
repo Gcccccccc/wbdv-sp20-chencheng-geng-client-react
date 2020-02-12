@@ -17,7 +17,7 @@ export const updateLesson = (lessonId,lesson) =>
             'content-type': 'application/json'
         }
     })
-export  const createLesson = (moduleId,lesson) => {
+export  const createLesson = (moduleId,lesson) =>
     fetch(`https://wbdv-generic-server.herokuapp.com/api/001348430/modules/${moduleId}/lessons`, {
         method: "POST",
         body: JSON.stringify(lesson),
@@ -26,7 +26,6 @@ export  const createLesson = (moduleId,lesson) => {
         }
     }).then(response=>response.json())
 
-}
 export default {
     deleteLesson,
     findLessonsForModule,

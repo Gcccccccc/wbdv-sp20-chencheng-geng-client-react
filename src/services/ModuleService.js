@@ -1,6 +1,6 @@
 import {API_URL} from "../common/constants";
 
-export const findModuleForCourse = (courseId) =>
+export const findModulesForCourse = (courseId) =>
     fetch(`https://wbdv-generic-server.herokuapp.com/api/001348430/courses/${courseId}/modules`)
         .then(response => response.json())
 
@@ -31,7 +31,7 @@ export const createModule = (courseId,module) =>
 
 export default {
     deleteModule,
-    findModuleForCourse,
+    findModulesForCourse,
     createModule,
     updateModule
 }

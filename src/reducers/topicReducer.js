@@ -13,12 +13,11 @@ const topicReducer = (state = initialState, action) => {
                 topics: action.topics
             }
         case UPDATE_TOPIC:{
-            for (let i = 0; i<state.topics.length;i++)
-            {
-                if(state.topics[i]._id === action.topicId)
-                    state.topics[i] = action.topic;
+            return {
+                topics: state.topics.map(topic =>
+                    topic._id === action.topicId ? action.topic : topic
+                )
             }
-            return state
         }
         case CREATE_TOPIC:
             return {
