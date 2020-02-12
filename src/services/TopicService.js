@@ -16,8 +16,9 @@ export const updateTopic = (topicId,topic) =>
         headers: {
             'content-type': 'application/json'
         }
-    })
-export  const createTopic = (lessonId,topic) => {
+    }).then(response => response.json())
+
+export const createTopic = (lessonId,topic) =>
     fetch(`https://wbdv-generic-server.herokuapp.com/api/001348430/lessons/${lessonId}/topics`, {
         method: "POST",
         body: JSON.stringify(topic),
@@ -26,7 +27,7 @@ export  const createTopic = (lessonId,topic) => {
         }
     }).then(response=>response.json())
 
-}
+
 export default {
     deleteTopic,
     findTopicsForLesson,

@@ -12,13 +12,13 @@ const topicReducer = (state = initialState, action) => {
             return {
                 topics: action.topics
             }
-        case UPDATE_TOPIC:{
+        case UPDATE_TOPIC:
             return {
                 topics: state.topics.map(topic =>
                     topic._id === action.topicId ? action.topic : topic
                 )
             }
-        }
+
         case CREATE_TOPIC:
             return {
                 topics: [

@@ -8,10 +8,12 @@ import {combineReducers, createStore} from "redux";
 import moduleReducer from "../reducers/moduleReducer";
 import {Provider} from "react-redux";
 import lessonReducer from "../reducers/lessonReducer";
+import topicReducer from "../reducers/topicReducer";
 
 const rootReducer = combineReducers({
     modules: moduleReducer,
-    lessons: lessonReducer
+    lessons: lessonReducer,
+    topics: topicReducer
 })
 const store = createStore(rootReducer)
 
@@ -30,13 +32,10 @@ const CourseEditorContainer = ({match}) =>
                         <div className="col-3">
                             <b className="wbdv-course-title">{match.params.courseId}</b>
                         </div>
-                        <div className="col-7">
-                            {/*<LessonTabsComponent*/}
-                            {/*    moduleId={match.params.moduleId}*/}
-                            {/*    courseId={match.params.courseId}/>*/}
-                        </div>
-                        <div className="col-1">
-                            <i className="fas fa-plus fa-2x" ></i>
+                        <div className="col-8">
+                            <LessonTabsComponent
+                                moduleId={match.params.moduleId}
+                                courseId={match.params.courseId}/>
                         </div>
                     </div>
                 </div>
@@ -47,32 +46,10 @@ const CourseEditorContainer = ({match}) =>
                     </div>
 
                     <div className="col-8 topics">
-                        {/*<TopicPillsComponent*/}
-                        {/*    moduleId={match.params.moduleId}*/}
-                        {/*    courseId={match.params.courseId}*/}
-                        {/*    topicId={match.params.topicId}/>*/}
-
-                        <div className="row wbdv-preview-row">
-                            <div className="col-9"></div>
-                            <div className="col-3 preview-toggle">
-                                <a className="btn btn-success">
-                                    <b style={{color: "white"}}>Save</b>
-                                </a>
-                                <span style={{margin: "10px"}}>
-                                      <b>Preview</b>
-                                 </span>
-                                <a href="#">
-                                    <i className="fas fa-toggle-off fa-2x" style={{color: "black"}}></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <WidgetListComponent/>
-
-                        <div align="right">
-                            <button className="wbdv-static"><i className="fas fa-plus-circle fa-3x"></i></button>
-                        </div>
-
+                        <TopicPillsComponent
+                            moduleId={match.params.moduleId}
+                            courseId={match.params.courseId}
+                            lessonId={match.params.lessonId}/>
                     </div>
                 </div>
             </div>

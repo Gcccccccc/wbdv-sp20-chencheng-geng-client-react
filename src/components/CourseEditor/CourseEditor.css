@@ -14,6 +14,7 @@
 
 .nav-pills > li > a.active {
     background-color: #313131!important;
+    color: white!important;
 }
 
 .nav-pills > li > a:hover {
@@ -31,7 +32,7 @@
 }
 
 .wbdv-module-item-highlighted{
-    background-color: cornflowerblue;
+    background-color: #818181;
     color: white;
     padding: 15px;
     margin: 10px;
@@ -71,6 +72,8 @@
  }
 .topics{
     padding: 20px;
+    height: 100vh;
+    background-color: white;
 }
 
 
@@ -83,10 +86,10 @@
 /*    color: #ffffff !important;*/
 /*}*/
 .wbdv-topic-pill{
-    background-color: #818181;
+    background-color: #949494;
     margin-left: 10px;
     margin-right: 10px;
-    color: white;
+    color: black!important;
 }
 
 .wbdv-module-item-add-btn{
@@ -175,5 +178,51 @@
 
 .module-btn{
     color: white;
-    size: A4;
+}
+.module-btn:hover{
+    color: white;
+}
+
+.add-lesson{
+    float: right;
+    color: #818181;
+}
+.add-lesson:hover{
+    color: white!important;
+}
+.wbdv-edit-module{
+    color: white;
+}
+.lesson-title{
+    color: white;
+}
+
+.wbdv-page-tab{
+    width: 220px;
+}
+.lesson-input{
+    border-radius: 6px;
+    font-weight: bold;
+    font-family: -apple-system;
+    width: 100px;
+}
+.wbdv-link:link{
+    color: white;
+}
+.wbdv-link:hover{
+    color: cornflowerblue;
+}
+
+.wbdv-topic-add{
+    color: #282c34;
+}
+/*.topic-pills{*/
+/*    width: 150px;*/
+/*}*/
+
+.topic-input{
+    border-radius: 6px;
+    font-weight: bold;
+    font-family: -apple-system;
+    width: 100px;
 }

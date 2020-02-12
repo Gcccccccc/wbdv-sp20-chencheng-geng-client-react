@@ -9,6 +9,7 @@ import {
     findModulesForCourse,
     updateModule
 } from "../../actions/moduleActions";
+import {Link} from "react-router-dom";
 
 
 class ModuleListComponent extends React.Component{
@@ -35,9 +36,11 @@ class ModuleListComponent extends React.Component{
                             {
                                 this.state.editing !== module._id &&
                                 <div>
-                                    <a className="wbdv-module-item-title btn">
-                                        {module.title}
-                                    </a>
+                                    <Link className="wbdv-link" to={`/course-editor/${this.props.courseId}/module/${module._id}`}>
+                                        <a className="wbdv-module-item-title btn">
+                                            {module.title}
+                                        </a>
+                                    </Link>
                                     <a className="wbdv-module-item-delete-btn btn" onClick={() => {this.setState({module: module, editing:module._id})}}>
                                         <i className="fas fa-pencil-alt wbdv-edit-module"/>
                                     </a>

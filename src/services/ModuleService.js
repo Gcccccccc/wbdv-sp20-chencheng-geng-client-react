@@ -1,5 +1,3 @@
-import {API_URL} from "../common/constants";
-
 export const findModulesForCourse = (courseId) =>
     fetch(`https://wbdv-generic-server.herokuapp.com/api/001348430/courses/${courseId}/modules`)
         .then(response => response.json())
