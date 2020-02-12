@@ -43,9 +43,7 @@ const CourseEditorContainer = ({match}) =>
 
                 <div className="row">
                     <div className="col-4 mudule-lst">
-                        <div className="nav flex-column nav-pills wbdv-module-list" aria-orientation="vertical">
-                            <ModuleListComponent courseId={match.params.courseId}/>
-                        </div>
+                        <ModuleListComponent courseId={match.params.courseId}/>
                     </div>
 
                     <div className="col-8 topics">

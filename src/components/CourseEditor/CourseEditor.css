@@ -30,17 +30,29 @@
     background-color: #313131;
 }
 
+.wbdv-module-item-highlighted{
+    background-color: cornflowerblue;
+    color: white;
+    padding: 15px;
+    margin: 10px;
+}
+.wbdv-module-item{
+    background-color: #3f3f3f;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+}
 .wbdv-module-item-delete-btn{
     background-color: Transparent;
     float: right;
     border: none;
 }
-
+.delete-and-save-module{
+    float: right;
+}
 .wbdv-module-item-title{
-    background-color: #3f3f3f;
     color: white;
-    padding: 15px;
-    margin: 10px;
+    font-size: large;
     /*display: flex;*/
     /*align-items: center;*/
 }
@@ -54,6 +66,9 @@
     background-color: cornflowerblue!important;
 }
 
+.wbdv-module-item-title:hover{
+     color: lightgray;
+ }
 .topics{
     padding: 20px;
 }
@@ -145,4 +160,20 @@
 
 .wbdv-preview-row{
     margin-bottom: 20px;
+}
+
+.delete-and-save-btn{
+    float: right;
+}
+.module-input{
+    border-radius: 6px;
+    font-weight: bold;
+    font-family: -apple-system;
+    font-size: large;
+
+}
+
+.module-btn{
+    color: white;
+    size: A4;
 }
