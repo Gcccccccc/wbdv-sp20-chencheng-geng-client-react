@@ -1,45 +1,89 @@
 import React from "react";
 
-const WidgetListComponent = () => {
-    return (
-        <div>
-            <div className="container">
-                <div className="heading-widget">
-                    <div className="row">
-                        <div className="col-8 wbdv-heading-widget">
-                            <h2>&nbsp;&nbsp;&nbsp;Heading Widget</h2>
-                        </div>
-                        <div className="col-4 hd-widget-row">
-                            <i className="fas fa-arrow-circle-up fa-2x"></i>
-                            <i className="fas fa-arrow-circle-down fa-2x"></i>
-                            <select className="form-control wbdv-widget-select">
-                                <option>
-                                    Heading
-                                </option>
-                            </select>
-                            <i className="fas fa-times fa-2x"></i>
-                        </div>
+import {createLesson, deleteLesson, findLessonsForModule, updateLesson} from "../../actions/lessonActions";
+import {connect} from "react-redux";
+import widgetService from "../../services/WidgetService";
+import HeadingWidgetComponent from "./widgets/HeadingWidgetComponent";
+class WidgetListComponent extends React.Component {
+
+    componentDidMount() {
+        this.props.findWidgetsForTopic(this.props.topicId)
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(this.props.topicId !== prevProps.topicId) {
+            this.props.findWidgetsForTopic(this.props.topicId)
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <div className="row wbdv-preview-row">
+                    <div className="col-9"></div>
+                    <div className="col-3 preview-toggle">
+                        <a className="btn btn-success">
+                            <b style={{color: "white"}}>Save</b>
+                        </a>
+                        <span style={{margin: "10px"}}>
+                                      <b>Preview</b>
+                                 </span>
+                        <a href="#">
+                            <i className="fas fa-toggle-off fa-2x" style={{color: "black"}}></i>
+                        </a>
                     </div>
-                    <div className="container">
-                        <input className="course-editor-input form-control" type="text"
-                               value="heading text"/>
-                    </div>
-                    <div className="container">
-                        <select className="course-editor-select form-control">
-                            <option>
-                                heading 1
-                            </option>
-                        </select>
-                    </div>
-                    <div className="container">
-                        <input className="course-editor-input form-control" type="text" value="Widget name"/>
-                    </div>
-                    <h2>&nbsp;&nbsp;&nbsp;Preview</h2>
-                    <h1>&nbsp;&nbsp;&nbsp;Heading text</h1>
+                </div>
+                {
+                    this.props.widgets &&
+                        this.props.widgets.map(()=><HeadingWidgetComponent/>)
+                }
+                <div align="right">
+                    <button className="wbdv-static" onClick={()=>this.props.createWidget(this.props.topicId)}><i className="fas fa-plus-circle fa-3x"></i></button>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
-export default WidgetListComponent
+const stateToPropertyMapper = (state) => {
+    return {
+        widgets: state.widgets.widgets
+    }
+}
+
+const dispatcherToPropertyMapper = (dispatch) => ({
+    updateWidget: (wid, widget) =>
+        widgetService.updateWidget(wid,widget)
+            .then(response => response.json())
+                    .then(status => dispatch({
+                        type: 'UPDATE_WIDGET',
+                        widget: widget
+                    })),
+
+    deleteWidget: (wid) =>
+        widgetService.deleteWidget(wid)
+            .then(status => dispatch({
+                type: 'DELETE_WIDGET',
+                widgetId: wid
+            })),
+
+    createWidget: (tid) =>
+        widgetService.createWidget(tid,{style: "HEADING",size: 1})
+            .then(actualWidget => dispatch({
+                type: "CREATE_WIDGET",
+                widget: actualWidget
+            })),
+
+    findWidgetsForTopic: (tid) =>
+        widgetService.findWidgetsForTopic(tid)
+            .then(actualWidgets => dispatch({
+                type: "FIND_WIDGETS_FOR_TOPIC",
+                widgets: actualWidgets
+            })),
+
+})
+
+export default connect(
+    stateToPropertyMapper,
+    dispatcherToPropertyMapper
+)(WidgetListComponent)

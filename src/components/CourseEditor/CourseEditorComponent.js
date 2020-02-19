@@ -9,11 +9,13 @@ import moduleReducer from "../../reducers/moduleReducer";
 import {Provider} from "react-redux";
 import lessonReducer from "../../reducers/lessonReducer";
 import topicReducer from "../../reducers/topicReducer";
+import widgetReducer from "../../reducers/WidgetReducer";
 
 const rootReducer = combineReducers({
     modules: moduleReducer,
     lessons: lessonReducer,
-    topics: topicReducer
+    topics: topicReducer,
+    widgets: widgetReducer
 })
 const store = createStore(rootReducer)
 
@@ -40,18 +42,23 @@ const CourseEditorComponent = ({match}) =>
                     </div>
                 </div>
 
-                <div className="row">
-                    <div className="col-4 mudule-lst">
-                        <ModuleListComponent courseId={match.params.courseId}/>
-                    </div>
+                <div className="module-topic">
+                    <div className="row">
+                        <div className="col-4 module-list">
+                            <ModuleListComponent courseId={match.params.courseId}/>
+                        </div>
 
-                    <div className="col-8 topics">
-                        <TopicPillsComponent
-                            moduleId={match.params.moduleId}
-                            courseId={match.params.courseId}
-                            lessonId={match.params.lessonId}/>
+                        <div className="col-8 topics">
+                            <TopicPillsComponent
+                                moduleId={match.params.moduleId}
+                                courseId={match.params.courseId}
+                                lessonId={match.params.lessonId}/>
+                            <WidgetListComponent
+                                topicId={match.params.topicId}/>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </Provider>
 

@@ -26,9 +26,9 @@
     color: white;
 }
 
-.mudule-lst{
-    height: 100vh;
+.module-list{
     background-color: #313131;
+    display: table-cell;
 }
 
 .wbdv-module-item-highlighted{
@@ -72,8 +72,8 @@
  }
 .topics{
     padding: 20px;
-    height: 100vh;
     background-color: white;
+    display: table-cell;
 }
 
 
@@ -93,7 +93,7 @@
 }
 
 .wbdv-module-item-add-btn{
-    padding: 30px;
+    padding: 10px;
     float: right;
 }
 .wbdv-module-add{
@@ -226,3 +226,4 @@
     font-family: -apple-system;
     width: 100px;
 }
+

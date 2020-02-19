@@ -3,6 +3,7 @@ import WidgetListComponent from "./WidgetListComponent";
 import topicService from "../../services/TopicService";
 import {connect} from "react-redux";
 import {createTopic, deleteTopic, findTopicsForLesson, updateTopic} from "../../actions/topicActions";
+import {Link} from "react-router-dom";
 
 
 class TopicPillsComponent extends React.Component{
@@ -26,7 +27,7 @@ class TopicPillsComponent extends React.Component{
     }
     render() {
         return(
-            <div>
+            <div className="row">
                 <ul className="nav nav-pills wbdv-topic-pill-list">
                     {
                         this.props.topics &&
@@ -37,7 +38,7 @@ class TopicPillsComponent extends React.Component{
                                     {
                                         this.state.editingTopicId !== topic._id &&
                                         <div>
-                                            <span><b>{topic.title}</b></span>
+                                            <Link className="wbdv-link" to={`/course-editor/${this.props.courseId}/module/${this.props.moduleId}/lesson/${this.props.lessonId}/topic/${topic._id}`}><b>{topic.title}</b></Link>
                                             <div className="wbdv-module-item-delete-btn btn" onClick={() => {this.setState({topic: topic, editingTopicId:topic._id})}}>
                                                 <i className="fas fa-pencil-alt wbdv-edit-module"/>
                                             </div>
@@ -75,37 +76,13 @@ class TopicPillsComponent extends React.Component{
                             </li>
                         )
                     }
+                    <div>
+                        <a className="btn wbdv-module-item-add-btn" onClick={()=>this.props.createTopic(this.props.lessonId)}>
+                            <i className="fas fa-plus fa-2x wbdv-topic-add"></i>
+                        </a>
+                    </div>
                 </ul>
 
-                <div>
-                    <a className="btn wbdv-module-item-add-btn" onClick={()=>this.props.createTopic(this.props.lessonId)}>
-                        <i className="fas fa-plus fa-2x wbdv-topic-add"></i>
-                    </a>
-                </div>
-
-
-            {/*    <div>*/}
-            {/*        <div className="row wbdv-preview-row">*/}
-            {/*            <div className="col-9"></div>*/}
-            {/*            <div className="col-3 preview-toggle">*/}
-            {/*                <a className="btn btn-success">*/}
-            {/*                    <b style={{color: "white"}}>Save</b>*/}
-            {/*                </a>*/}
-            {/*                <span style={{margin: "10px"}}>*/}
-            {/*                              <b>Preview</b>*/}
-            {/*                         </span>*/}
-            {/*                <a href="#">*/}
-            {/*                    <i className="fas fa-toggle-off fa-2x" style={{color: "black"}}></i>*/}
-            {/*                </a>*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-
-            {/*        <WidgetListComponent/>*/}
-
-            {/*        <div align="right">*/}
-            {/*            <button className="wbdv-static"><i className="fas fa-plus-circle fa-3x"></i></button>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
             </div>
 
         )}
