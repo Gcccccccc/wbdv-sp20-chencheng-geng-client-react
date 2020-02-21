@@ -16,6 +16,9 @@ class WidgetListComponent extends React.Component {
         }
     }
 
+    state = {
+        isPreview : false
+    }
     render() {
         return (
             <div>
@@ -27,15 +30,32 @@ class WidgetListComponent extends React.Component {
                             <span style={{margin: "10px"}}>
                                           <b>Preview</b>
                                      </span>
-                            <a href="#">
-                                <i className="fas fa-toggle-off fa-2x" style={{color: "black"}}></i>
-                            </a>
+                            {
+                                this.state.isPreview &&
+                                <div className="btn" onClick={()=>{
+                                    this.setState(
+                                        {isPreview : false}
+                                    )
+                                }}>
+                                  <i className="fas fa-toggle-on fa-2x"></i>
+                                </div>
+                            }
+                            {
+                                !this.state.isPreview &&
+                                <div className="btn" onClick={()=>{
+                                    this.setState(
+                                        {isPreview : true}
+                                    )
+                                }}>
+                                    <i className="fas fa-toggle-off fa-2x" style={{color: "black"}}></i>
+                                </div>
+                            }
                         </div>
                     </div>
                 }
                 {
                     this.props.widgets &&
-                    this.props.widgets.map((widget)=><HeadingWidgetComponent deleteWidget={this.props.deleteWidget} updateWidget={this.props.updateWidget} widget={widget}/>)
+                    this.props.widgets.map((widget)=><HeadingWidgetComponent isPreview={this.state.isPreview} deleteWidget={this.props.deleteWidget} updateWidget={this.props.updateWidget} widget={widget}/>)
                 }
                 <div align="right">
                     <button className="wbdv-static" onClick={() => this.props.createWidget(this.props.topicId)}><i
