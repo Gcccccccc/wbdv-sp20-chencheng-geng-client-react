@@ -28,6 +28,7 @@
 
 .module-list{
     background-color: #313131;
+    min-height: 100vh;
     display: table-cell;
 }
 
@@ -216,9 +217,6 @@
 .wbdv-topic-add{
     color: #282c34;
 }
-/*.topic-pills{*/
-/*    width: 150px;*/
-/*}*/
 
 .topic-input{
     border-radius: 6px;
@@ -227,3 +225,6 @@
     width: 100px;
 }
 
+.heading-text{
+    margin-left: 26px;
+}

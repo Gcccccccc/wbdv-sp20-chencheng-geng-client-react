@@ -19,27 +19,29 @@ class WidgetListComponent extends React.Component {
     render() {
         return (
             <div>
-                <div className="row wbdv-preview-row">
-                    <div className="col-9"></div>
-                    <div className="col-3 preview-toggle">
-                        <a className="btn btn-success">
-                            <b style={{color: "white"}}>Save</b>
-                        </a>
-                        <span style={{margin: "10px"}}>
-                                      <b>Preview</b>
-                                 </span>
-                        <a href="#">
-                            <i className="fas fa-toggle-off fa-2x" style={{color: "black"}}></i>
-                        </a>
+                {
+                    this.props.widgets.length !== 0  &&
+                    <div className="row wbdv-preview-row">
+                        <div className="col-9"></div>
+                        <div className="col-3 preview-toggle">
+                            <span style={{margin: "10px"}}>
+                                          <b>Preview</b>
+                                     </span>
+                            <a href="#">
+                                <i className="fas fa-toggle-off fa-2x" style={{color: "black"}}></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                }
                 {
                     this.props.widgets &&
-                        this.props.widgets.map(()=><HeadingWidgetComponent/>)
+                    this.props.widgets.map((widget)=><HeadingWidgetComponent deleteWidget={this.props.deleteWidget} updateWidget={this.props.updateWidget} widget={widget}/>)
                 }
                 <div align="right">
-                    <button className="wbdv-static" onClick={()=>this.props.createWidget(this.props.topicId)}><i className="fas fa-plus-circle fa-3x"></i></button>
+                    <button className="wbdv-static" onClick={() => this.props.createWidget(this.props.topicId)}><i
+                        className="fas fa-plus-circle fa-3x"></i></button>
                 </div>
+
             </div>
         )
     }
@@ -54,11 +56,10 @@ const stateToPropertyMapper = (state) => {
 const dispatcherToPropertyMapper = (dispatch) => ({
     updateWidget: (wid, widget) =>
         widgetService.updateWidget(wid,widget)
-            .then(response => response.json())
-                    .then(status => dispatch({
-                        type: 'UPDATE_WIDGET',
-                        widget: widget
-                    })),
+            .then(status => dispatch({
+                type: 'UPDATE_WIDGET',
+                widget: widget
+            })),
 
     deleteWidget: (wid) =>
         widgetService.deleteWidget(wid)
@@ -68,7 +69,7 @@ const dispatcherToPropertyMapper = (dispatch) => ({
             })),
 
     createWidget: (tid) =>
-        widgetService.createWidget(tid,{style: "HEADING",size: 1})
+        widgetService.createWidget(tid,{style: "HEADING",size: 2,text:"new widget"})
             .then(actualWidget => dispatch({
                 type: "CREATE_WIDGET",
                 widget: actualWidget
