@@ -228,3 +228,9 @@
 .heading-text{
     margin-left: 26px;
 }
+
+.text-area{
+    padding: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}

@@ -7,6 +7,7 @@ class HeadingWidgetComponent extends React.Component{
         widget : this.props.widget
     }
 
+
     render(){
         return(
             <div className="container">
@@ -27,13 +28,33 @@ class HeadingWidgetComponent extends React.Component{
                                    }>
                                     <b style={{color: "white"}}>Save</b>
                                 </a>
-                                <i className="fas fa-arrow-circle-up fa-2x"></i>
-                                <i className="fas fa-arrow-circle-down fa-2x"></i>
-                                <select className="form-control wbdv-widget-select">
-                                    <option>
+                                {
+                                    this.props.first.id !== this.state.widget.id &&
+                                    <span className="btn" onClick={() => this.props.widgetUp(this.state.widget)}>
+                                        <i className="fas fa-arrow-circle-up fa-2x"></i>
+                                    </span>
+                                }
+                                {
+                                    this.props.last.id !== this.state.widget.id &&
+                                    <span className="btn" onClick={() => this.props.widgetDown(this.state.widget)}>
+                                        <i className="fas fa-arrow-circle-down fa-2x"></i>
+                                    </span>
+                                }
+                                <select className="form-control wbdv-widget-select"
+                                        onChange={(e) => {
+                                            const newType = e.target.value
+                                            this.setState(prevState => ({
+                                                widget: {
+                                                    ...prevState.widget,
+                                                    type: newType
+                                                }
+                                            }))
+                                        }}
+                                        value={this.state.widget.type}>
+                                    <option value={"HEADING"}>
                                         Heading
                                     </option>
-                                    <option>
+                                    <option value={"PARAGRAPH"}>
                                         Paragraph
                                     </option>
                                 </select>

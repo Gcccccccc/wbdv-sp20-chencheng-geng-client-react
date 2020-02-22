@@ -27,7 +27,6 @@ export const createWidget = (tid,widget) =>
         }
     }).then(response=>response.json())
 
-
 export default {
     deleteWidget,
     findWidgetsForTopic,
