@@ -26,9 +26,9 @@ const CourseEditorComponent = ({match}) =>
                     <div className="row nbar-editor">
                         <div className="col-1">
                             <Link to="/">
-                                <a className="wbdv-course-editor wbdv-close" href="#">
+                                <div className="wbdv-course-editor wbdv-close">
                                     <i className="fas fa-times fa-2x wbdv-back"></i>
-                                </a>
+                                </div>
                             </Link>
                         </div>
                         <div className="col-3">

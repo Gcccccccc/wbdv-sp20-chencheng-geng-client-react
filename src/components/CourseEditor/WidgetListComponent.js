@@ -120,7 +120,7 @@ const dispatcherToPropertyMapper = (dispatch) => ({
             })),
 
     createWidget: (wid,len) =>
-        widgetService.createWidget(wid,{type: "HEADING",size: 2,text:"new widget",order:len+15})
+        widgetService.createWidget(wid,{type: "HEADING",order:len+15,text:"new widget",size: 2})
             .then(actualWidget => dispatch({
                 type: "CREATE_WIDGET",
                 widget: actualWidget
