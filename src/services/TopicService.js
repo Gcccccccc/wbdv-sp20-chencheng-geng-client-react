@@ -1,16 +1,16 @@
 export const findTopicsForLesson = (lessonId) =>
-    fetch(`http://localhost:8080/api/lessons/${lessonId}/topics`)
+    fetch(`https://tranquil-citadel-07134.herokuapp.com/api/lessons/${lessonId}/topics`)
         .then(response => response.json())
 
 
 export const deleteTopic = (topicId) =>
-    fetch(`http://localhost:8080/api/topics/${topicId}`, {
+    fetch(`https://tranquil-citadel-07134.herokuapp.com/api/topics/${topicId}`, {
         method: "DELETE"
     })
         .then(response => response.json())
 
 export const updateTopic = (topicId,topic) =>
-    fetch(`http://localhost:8080/api/topics/${topicId}`,{
+    fetch(`https://tranquil-citadel-07134.herokuapp.com/api/topics/${topicId}`,{
         method: 'PUT',
         body: JSON.stringify(topic),
         headers: {
@@ -19,7 +19,7 @@ export const updateTopic = (topicId,topic) =>
     }).then(response => response.json())
 
 export const createTopic = (lessonId,topic) =>
-    fetch(`http://localhost:8080/api/lessons/${lessonId}/topics`, {
+    fetch(`https://tranquil-citadel-07134.herokuapp.com/api/lessons/${lessonId}/topics`, {
         method: "POST",
         body: JSON.stringify(topic),
         headers: {
