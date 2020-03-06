@@ -60,17 +60,21 @@ class ModuleListComponent extends React.Component{
                                     }}
                                            value={this.state.module.title}/>
                                     <div className="delete-and-save-btn">
-                                        <i className="fas fa-times fa-3x btn module-btn" onClick={() => {
-                                            this.props.deleteModule(module._id)
-                                        }}>
-                                        </i>
-                                        <i className="fas fa-check fa-3x btn module-btn" onClick={
-                                            ()=>{
-                                                this.props.updateModule(this.state.module._id,this.state.module)
-                                                    .then(status=>{this.setState({editing: ''})})
+                                        <span className="btn module-btn">
+                                            <i className="fas fa-times" onClick={() => {
+                                                  this.props.deleteModule(module._id)
+                                                }}>
+                                            </i>
+                                        </span>
+                                        <span className="btn module-btn">
+                                            <i className="fas fa-check" onClick={
+                                                ()=>{
+                                                    this.props.updateModule(this.state.module._id,this.state.module)
+                                                        .then(status=>{this.setState({editing: ''})})
+                                                }
                                             }
-                                        }
-                                        ></i>
+                                            ></i>
+                                        </span>
                                     </div>
                                 </div>
                             }

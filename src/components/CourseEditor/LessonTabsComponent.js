@@ -65,17 +65,22 @@ class LessonTabsComponent extends React.Component {
                                                 }}
                                                 value={this.state.lesson.title}/>
                                             <div className="delete-and-save-btn">
-                                                <i className="fas fa-times fa-3x btn module-btn" onClick={() => {
-                                                    this.props.deleteLesson(lesson._id)
-                                                }}>
+                                                <span className="btn module-btn">
+                                                    <i className="fas fa-times" onClick={() => {
+                                                        this.props.deleteLesson(lesson._id)
+                                                    }}>
                                                 </i>
-                                                <i className="fas fa-check fa-3x btn module-btn" onClick={
+                                                </span>
+
+                                                <span className="btn module-btn">
+                                                    <i className="fas fa-check" onClick={
                                                     ()=>{
                                                         this.props.updateLesson(this.state.lesson._id,this.state.lesson)
                                                             .then(status=>{this.setState({editingLessonId: ''})})
                                                     }
                                                 }
                                                 ></i>
+                                                </span>
                                             </div>
                                         </div>
                                     }

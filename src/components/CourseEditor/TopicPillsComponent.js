@@ -61,16 +61,20 @@ class TopicPillsComponent extends React.Component{
                                                    }}
                                                    value={this.state.topic.title}/>
                                             <div className="delete-and-save-btn">
-                                                <i className="fas fa-times fa-3x btn module-btn" onClick={() => {
-                                                    this.props.deleteTopic(topic.id)
-                                                }}>
-                                                </i>
-                                                <i className="fas fa-check fa-3x btn module-btn" onClick={
-                                                    ()=>{
-                                                        this.props.updateTopic(this.state.topic.id,this.state.topic)
-                                                            .then(status=>{this.setState({editingTopicId: ''})})
-                                                    }
-                                                }></i>
+                                                <span className="btn module-btn">
+                                                    <i className="fas fa-times" onClick={() => {
+                                                        this.props.deleteTopic(topic.id)
+                                                    }}>
+                                                    </i>
+                                                </span>
+                                                <span className="btn module-btn">
+                                                    <i className="fas fa-check" onClick={
+                                                        ()=>{
+                                                            this.props.updateTopic(this.state.topic.id,this.state.topic)
+                                                                .then(status=>{this.setState({editingTopicId: ''})})
+                                                        }
+                                                    }></i>
+                                                </span>
                                             </div>
                                         </div>
                                     }
