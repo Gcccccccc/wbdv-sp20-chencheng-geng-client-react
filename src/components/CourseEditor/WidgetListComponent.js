@@ -58,7 +58,7 @@ class WidgetListComponent extends React.Component {
                 }
                 {
 
-                    this.props.widgets &&
+                    this.props.widgets && this.props.widgets.length > 0 &&
                     this.props.widgets.map((widget)=>
                         <div key={widget.id}>
                             {
@@ -120,7 +120,7 @@ const dispatcherToPropertyMapper = (dispatch) => ({
             })),
 
     createWidget: (wid,len) =>
-        widgetService.createWidget(wid,{type: "HEADING",order:len+15,text:"new widget",size: 2})
+        widgetService.createWidget(wid,{type: "HEADING",_order:len+15,text:"new widget",_size: 2})
             .then(actualWidget => dispatch({
                 type: "CREATE_WIDGET",
                 widget: actualWidget

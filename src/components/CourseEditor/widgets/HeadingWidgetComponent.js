@@ -84,11 +84,11 @@ class HeadingWidgetComponent extends React.Component{
                                     this.setState(prevState => ({
                                         widget: {
                                             ...prevState.widget,
-                                            size: newSize
+                                            _size: newSize
                                         }
                                     }))
                                 }}
-                                value={this.state.widget.size}>
+                                value={this.state.widget._size}>
                                 <option value={1}>
                                     Heading 1
                                 </option>
@@ -121,11 +121,11 @@ class HeadingWidgetComponent extends React.Component{
                         </div>
                     }
                     <div className="heading-text">
-                        {this.state.widget.size===1 && <h1>{this.state.widget.text}</h1>}
-                        {this.state.widget.size===2 && <h2>{this.state.widget.text}</h2>}
-                        {this.state.widget.size===3 && <h3>{this.state.widget.text}</h3>}
-                        {this.state.widget.size===4 && <h4>{this.state.widget.text}</h4>}
-                        {this.state.widget.size===5 && <h5>{this.state.widget.text}</h5>}
+                        {this.state.widget._size===1 && <h1>{this.state.widget.text}</h1>}
+                        {this.state.widget._size===2 && <h2>{this.state.widget.text}</h2>}
+                        {this.state.widget._size===3 && <h3>{this.state.widget.text}</h3>}
+                        {this.state.widget._size===4 && <h4>{this.state.widget.text}</h4>}
+                        {this.state.widget._size===5 && <h5>{this.state.widget.text}</h5>}
                     </div>
                 </div>
             </div>

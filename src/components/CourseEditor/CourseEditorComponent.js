@@ -53,8 +53,13 @@ const CourseEditorComponent = ({match}) =>
                                 moduleId={match.params.moduleId}
                                 courseId={match.params.courseId}
                                 lessonId={match.params.lessonId}/>
-                            <WidgetListComponent
-                                topicId={match.params.topicId}/>
+
+                            {
+                                match.params.topicId &&
+                                <WidgetListComponent
+                                    topicId={match.params.topicId}/>
+                            }
+
                         </div>
                     </div>
                 </div>

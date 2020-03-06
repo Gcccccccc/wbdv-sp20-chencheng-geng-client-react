@@ -1,9 +1,11 @@
 import React from "react";
 import WidgetListComponent from "./WidgetListComponent";
 import topicService from "../../services/TopicService";
+import widgetService from "../../services/WidgetService";
 import {connect} from "react-redux";
 import {createTopic, deleteTopic, findTopicsForLesson, updateTopic} from "../../actions/topicActions";
 import {Link} from "react-router-dom";
+import {deleteWidget} from "../../services/WidgetService";
 
 
 class TopicPillsComponent extends React.Component{
@@ -22,7 +24,7 @@ class TopicPillsComponent extends React.Component{
         editingTopicId: '',
         topic: {
             title: '',
-            _id: ''
+            id: ''
         }
     }
     render() {
@@ -33,19 +35,19 @@ class TopicPillsComponent extends React.Component{
                         this.props.topics &&
                         this.props.topics.map(topic =>
                             <li className="nav-item" onClick={() => this.setState({
-                                selectedTopicId: topic._id})} key={topic._id}>
-                                <a className={`nav-link wbdv-topic-pill ${(this.state.selectedTopicId === topic._id)?'active':''}`}>
+                                selectedTopicId: topic.id})} key={topic.id}>
+                                <a className={`nav-link wbdv-topic-pill ${(this.state.selectedTopicId === topic.id)?'active':''}`}>
                                     {
-                                        this.state.editingTopicId !== topic._id &&
+                                        this.state.editingTopicId !== topic.id &&
                                         <div>
-                                            <Link className="wbdv-link" to={`/course-editor/${this.props.courseId}/module/${this.props.moduleId}/lesson/${this.props.lessonId}/topic/${topic._id}`}><b>{topic.title}</b></Link>
-                                            <div className="wbdv-module-item-delete-btn btn" onClick={() => {this.setState({topic: topic, editingTopicId:topic._id})}}>
+                                            <Link className="wbdv-link" to={`/course-editor/${this.props.courseId}/module/${this.props.moduleId}/lesson/${this.props.lessonId}/topic/${topic.id}`}><b>{topic.title}</b></Link>
+                                            <div className="wbdv-module-item-delete-btn btn" onClick={() => {this.setState({topic: topic, editingTopicId:topic.id})}}>
                                                 <i className="fas fa-pencil-alt wbdv-edit-module"/>
                                             </div>
                                         </div>
                                     }
                                     {
-                                        this.state.editingTopicId === topic._id &&
+                                        this.state.editingTopicId === topic.id &&
                                         <div>
                                             <input className="topic-input"
                                                    onChange={(e) => {
@@ -60,12 +62,12 @@ class TopicPillsComponent extends React.Component{
                                                    value={this.state.topic.title}/>
                                             <div className="delete-and-save-btn">
                                                 <i className="fas fa-times fa-3x btn module-btn" onClick={() => {
-                                                    this.props.deleteTopic(topic._id)
+                                                    this.props.deleteTopic(topic.id)
                                                 }}>
                                                 </i>
                                                 <i className="fas fa-check fa-3x btn module-btn" onClick={
                                                     ()=>{
-                                                        this.props.updateTopic(this.state.topic._id,this.state.topic)
+                                                        this.props.updateTopic(this.state.topic.id,this.state.topic)
                                                             .then(status=>{this.setState({editingTopicId: ''})})
                                                     }
                                                 }></i>
@@ -107,6 +109,7 @@ const dispatcherToPropertyMapper = (dispatch) => ({
                     dispatch(deleteTopic(topicId))
                 }
             )
+
     ,
 
     createTopic : (lessonId) =>

@@ -1,8 +1,7 @@
-
 const widgets = [];
 
 const cmp = (w1, w2) =>{
-    return w1.order - w2.order
+    return w1._order - w2._order
 };
 
 const widgetReducer = (
@@ -58,7 +57,7 @@ const  newDownWidgets = (targetWidget,widgets) => {
         }
     }
     for(let i=0; i< newArr.length; i++){
-        newArr[i].order = i + 1;
+        newArr[i]._order = i + 1;
     }
     return newArr
 };
@@ -77,7 +76,7 @@ const newUpWidgets = (targetWidget,widgets) => {
         }
     }
     for(let i=0; i< newArr.length; i++){
-        newArr[i].order = i + 1;
+        newArr[i]._order = i + 1;
     }
     return newArr
 };
