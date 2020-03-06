@@ -5,6 +5,8 @@ import {connect} from "react-redux";
 import widgetService from "../../services/WidgetService";
 import HeadingWidgetComponent from "./widgets/HeadingWidgetComponent";
 import ParagraphWidgetComponent from "./widgets/ParagraphWidgetComponent";
+import ImageWidgetComponent from "./widgets/ImageWidgetComponent";
+import ListWidgetComponent from "./widgets/ListWidgetComponent";
 class WidgetListComponent extends React.Component {
 
     componentDidMount() {
@@ -76,6 +78,30 @@ class WidgetListComponent extends React.Component {
                             {
                                 widget.type === "PARAGRAPH" &&
                                 <ParagraphWidgetComponent
+                                    isPreview={this.state.isPreview}
+                                    deleteWidget={this.props.deleteWidget}
+                                    updateWidget={this.props.updateWidget}
+                                    widget={widget}
+                                    widgetUp={this.props.widgetUp}
+                                    widgetDown={this.props.widgetDown}
+                                    first={this.props.widgets[0]}
+                                    last={this.props.widgets[this.props.widgets.length-1]}/>
+                            }
+                            {
+                                widget.type === "IMAGE" &&
+                                <ImageWidgetComponent
+                                    isPreview={this.state.isPreview}
+                                    deleteWidget={this.props.deleteWidget}
+                                    updateWidget={this.props.updateWidget}
+                                    widget={widget}
+                                    widgetUp={this.props.widgetUp}
+                                    widgetDown={this.props.widgetDown}
+                                    first={this.props.widgets[0]}
+                                    last={this.props.widgets[this.props.widgets.length-1]}/>
+                            }
+                            {
+                                widget.type === "LIST" &&
+                                <ListWidgetComponent
                                     isPreview={this.state.isPreview}
                                     deleteWidget={this.props.deleteWidget}
                                     updateWidget={this.props.updateWidget}

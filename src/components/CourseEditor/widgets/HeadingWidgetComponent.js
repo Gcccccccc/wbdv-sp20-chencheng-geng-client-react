@@ -57,12 +57,18 @@ class HeadingWidgetComponent extends React.Component{
                                     <option value={"PARAGRAPH"}>
                                         Paragraph
                                     </option>
+                                    <option value={"IMAGE"}>
+                                        Image
+                                    </option>
+                                    <option value={"LIST"}>
+                                        List
+                                    </option>
                                 </select>
                                 <span className="btn" onClick={() => {this.props.deleteWidget(this.props.widget.id)}}><i className="fas fa-times fa-2x"></i></span>
-                                <i className="fas fa-times fa-3x btn module-btn" onClick={() => {
-                                    this.props.deleteWidget(this.state.widget.id)
-                                }}>
-                                </i>
+                                {/*<i className="fas fa-times fa-3x btn module-btn" onClick={() => {*/}
+                                {/*    this.props.deleteWidget(this.state.widget.id)*/}
+                                {/*}}>*/}
+                                {/*</i>*/}
                             </div>
                         </div>
                         <div className="container">

@@ -1,7 +1,7 @@
 import React from "react";
 
 
-class ParagraphWidgetComponent extends React.Component{
+class ListWidgetComponent extends React.Component{
 
     state = {
         widget : this.props.widget
@@ -16,7 +16,7 @@ class ParagraphWidgetComponent extends React.Component{
                         <div>
                             <div className="row">
                                 <div className="col-7 wbdv-heading-widget">
-                                    <h2>&nbsp;&nbsp;&nbsp;Paragraph Widget</h2>
+                                    <h2>&nbsp;&nbsp;&nbsp;List Widget</h2>
                                 </div>
                                 <div className="col-5 hd-widget-row">
                                     <a className="btn btn-success"
@@ -66,15 +66,11 @@ class ParagraphWidgetComponent extends React.Component{
                                     <span className="btn" onClick={() => {this.props.deleteWidget(this.props.widget.id)}}>
                                         <i className="fas fa-times fa-2x"></i>
                                     </span>
-                                    {/*<span className="btn" onClick={() => {*/}
-                                    {/*    this.props.deleteWidget(this.state.widget.id)}}>*/}
-                                    {/*    <i className="fas fa-times fa-3x module-btn"></i>*/}
-                                    {/*</span>*/}
                                 </div>
                             </div>
                             <div className="container">
                                 <textarea className="text-area form-control"
-                                       value={this.state.widget.text} placeholder="paragraph text" onChange={(e)=>{
+                                          value={this.state.widget.text} placeholder={"Put each\nItem in\na separate row"} onChange={(e)=>{
                                     const newText = e.target.value
                                     this.setState(prevState => ({
                                             widget: {
@@ -83,6 +79,26 @@ class ParagraphWidgetComponent extends React.Component{
                                             }
                                         })
                                     )}}/>
+                            </div>
+                            <div className="container">
+                            <select className="form-control list-type"
+                                    onChange={(e) => {
+                                        const newListType = e.target.value
+                                        this.setState(prevState => ({
+                                            widget: {
+                                                ...prevState.widget,
+                                                listType: newListType
+                                            }
+                                        }))
+                                    }}
+                                    value={this.state.widget.listType}>
+                                <option value={"UL"}>
+                                    Unordered List
+                                </option>
+                                <option value={"OL"}>
+                                    Ordered List
+                                </option>
+                            </select>
                             </div>
                             <div className="container">
                                 <input className="course-editor-input form-control" value={this.state.widget.name} placeholder={"Widget Name"}
@@ -99,7 +115,22 @@ class ParagraphWidgetComponent extends React.Component{
                         </div>
                     }
                     <div className="heading-text">
-                        {this.state.widget.text}
+                        {
+                            this.state.widget.listType === "OL" &&
+                            <ol>
+                                {this.state.widget.text.split("\n").map(text =>
+                                    <li>{text}</li>)
+                                }
+                            </ol>
+                        }
+                        {
+                            this.state.widget.listType === "UL" &&
+                            <ul>
+                                {this.state.widget.text.split("\n").map(text =>
+                                    <li>{text}</li>)
+                                }
+                            </ul>
+                        }
                     </div>
                 </div>
             </div>
@@ -110,4 +141,4 @@ class ParagraphWidgetComponent extends React.Component{
 
 
 
-export default ParagraphWidgetComponent
+export default ListWidgetComponent

@@ -1,7 +1,7 @@
 import React from "react";
 
 
-class ParagraphWidgetComponent extends React.Component{
+class ImageWidgetComponent extends React.Component{
 
     state = {
         widget : this.props.widget
@@ -16,7 +16,7 @@ class ParagraphWidgetComponent extends React.Component{
                         <div>
                             <div className="row">
                                 <div className="col-7 wbdv-heading-widget">
-                                    <h2>&nbsp;&nbsp;&nbsp;Paragraph Widget</h2>
+                                    <h2>&nbsp;&nbsp;&nbsp;Image Widget</h2>
                                 </div>
                                 <div className="col-5 hd-widget-row">
                                     <a className="btn btn-success"
@@ -66,20 +66,17 @@ class ParagraphWidgetComponent extends React.Component{
                                     <span className="btn" onClick={() => {this.props.deleteWidget(this.props.widget.id)}}>
                                         <i className="fas fa-times fa-2x"></i>
                                     </span>
-                                    {/*<span className="btn" onClick={() => {*/}
-                                    {/*    this.props.deleteWidget(this.state.widget.id)}}>*/}
-                                    {/*    <i className="fas fa-times fa-3x module-btn"></i>*/}
-                                    {/*</span>*/}
+
                                 </div>
                             </div>
                             <div className="container">
-                                <textarea className="text-area form-control"
-                                       value={this.state.widget.text} placeholder="paragraph text" onChange={(e)=>{
-                                    const newText = e.target.value
+                                <input className="course-editor-input form-control"
+                                       value={this.state.widget.url} placeholder="http://lorempixel.com/300/150" onChange={(e)=>{
+                                    const newURL = e.target.value
                                     this.setState(prevState => ({
                                             widget: {
                                                 ...prevState.widget,
-                                                text: newText
+                                                url: newURL
                                             }
                                         })
                                     )}}/>
@@ -98,9 +95,7 @@ class ParagraphWidgetComponent extends React.Component{
                             <h1>&nbsp;&nbsp;&nbsp;Preview</h1>
                         </div>
                     }
-                    <div className="heading-text">
-                        {this.state.widget.text}
-                    </div>
+                    <img  className="img" src={this.state.widget.url} />
                 </div>
             </div>
         )
@@ -110,4 +105,4 @@ class ParagraphWidgetComponent extends React.Component{
 
 
 
-export default ParagraphWidgetComponent
+export default ImageWidgetComponent
